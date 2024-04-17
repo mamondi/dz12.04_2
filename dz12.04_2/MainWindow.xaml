@@ -1,1 +1,47 @@
-﻿
+﻿<Window x:Class="dz12._04_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Search and Replace App" Height="350" Width="500">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="filePathTextBox" Grid.Row="0" Margin="0,0,0,10" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+        <TextBlock x:Name="searchTextBlock" Text="Enter word to search" Grid.Row="1" Margin="0,0,0,5" VerticalAlignment="Center" Foreground="Gray">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text.IsEmpty, ElementName=searchTextBox}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBox x:Name="searchTextBox" Grid.Row="1" Margin="0,0,0,5" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+        <TextBlock x:Name="replaceTextBlock" Text="Enter word to replace" Grid.Row="2" Margin="0,0,0,5" VerticalAlignment="Center" Foreground="Gray">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text.IsEmpty, ElementName=replaceTextBox}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBox x:Name="replaceTextBox" Grid.Row="2" Margin="0,0,0,5" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+        <Button Content="Search and Replace" Grid.Row="3" Margin="0,0,0,10" Click="SearchAndReplaceButton_Click" HorizontalAlignment="Stretch"/>
+
+        <TextBlock x:Name="searchReplaceStatsTextBlock" Grid.Row="4" Margin="0,0,0,5"/>
+    </Grid>
+</Window>
