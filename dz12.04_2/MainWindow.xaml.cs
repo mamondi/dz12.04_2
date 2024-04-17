@@ -58,6 +58,7 @@ namespace dz12._04_2
             }
         }
     }
+
     public class tenThousandRandomNumbers
     {
         public List<int> numbers = new List<int>();
