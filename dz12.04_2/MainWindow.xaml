@@ -1,1 +1,33 @@
-﻿
+﻿<Window x:Class="dz12._04_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Reverse File Content App" Height="350" Width="500">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="filePathTextBox" Grid.Row="0" Margin="0,0,0,10" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+        <TextBlock x:Name="filePathTextBlock" Text="Enter file path" Grid.Row="0" Margin="0,0,0,5" VerticalAlignment="Center" Foreground="Gray">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text.IsEmpty, ElementName=filePathTextBox}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <Button Content="Reverse File Content" Grid.Row="1" Margin="0,0,0,10" Click="ReverseFileContentButton_Click" HorizontalAlignment="Stretch"/>
+
+        <TextBlock x:Name="reverseFileContentStatsTextBlock" Grid.Row="2" Margin="0,0,0,5"/>
+    </Grid>
+</Window>
